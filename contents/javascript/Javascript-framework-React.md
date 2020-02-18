@@ -100,6 +100,10 @@ For example, the application above is divided into two components:
       );
     };
     ```
+   <box type="info">
+   `props` is a special keyword in React that is being used for passing data from one component to another, in a uni-directional flow (parent to child).<br/>
+   `props` is read-only. In order for child component to update data in `props`, parent component should pass its own change handler function to `props`, so that the child component can call the function to update data in `props`. 
+   </box>
 
 As you can see, React components are just JavaScript functions that accept arbitrary input and return a declarative view describing what should appear in the application's UI. 
 
@@ -107,7 +111,7 @@ As you can see, React components are just JavaScript functions that accept arbit
 
 *Data binding* refers to the exchange of information between the application data and the UI. React provides *one-way* data binding. In applications that use one-way data binding, changes to the application data are automatically reflected in the UI. However, changes to the UI need to be manually propagated to the application data. 
 
-In the above application, you can see that the UI is updated whenever a different name is entered in the textbox. These updates do not happen in a single step - the application data is first updated using the `handleChange()` method, and then the UI is updated to reflect these changes. 
+In the above application, you can see that the UI is updated whenever a different name is entered in the textbox. These updates do not happen in a single step - an `onChange()` event is first fired, which updates the application data by calling the `handleChange()` method, the change in application data will then update the corresponding UI to reflect the changes. 
 
 ## Why use React?
 
